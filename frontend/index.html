@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Microservice Demo</title>
+</head>
+
+<body>
+    <h1>Microservice Demo (via Gateway)</h1>
+    <button onclick="callMicro1()">Call Micro1</button>
+    <button onclick="callMicro2()">Call Micro2</button>
+    <p id="output"></p>
+
+    <script>
+        async function callMicro1() {
+            try {
+                let res = await fetch("http://localhost:3000/micro1");
+                document.getElementById("output").innerText = await res.text();
+            } catch (err) {
+                document.getElementById("output").innerText = "❌ Error calling Micro1";
+            }
+        }
+
+        async function callMicro2() {
+            try {
+                let res = await fetch("http://localhost:3000/micro2");
+                document.getElementById("output").innerText = await res.text();
+            } catch (err) {
+                document.getElementById("output").innerText = "❌ Error calling Micro2";
+            }
+        }
+    </script>
+</body>
+
+</html>
