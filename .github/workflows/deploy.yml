@@ -1,0 +1,22 @@
+name: CI/CD Deployment
+
+on:
+  push:
+    branches:
+      - main # trigger on main branch push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 128.199.176.121
+          username: root
+          key: ${{ secrets.SERVER_SSH_MICRO }}
+          port: 22
+          script: |
+            cd /var/www/html/microService-docker-project
+            ./deploy.sh

@@ -4,17 +4,17 @@ services:
   micro1:
     build: ./microservices/micro1
     ports:
-      - "3001:3001"
+      - "5001:3001"
 
   micro2:
     build: ./microservices/micro2
     ports:
-      - "3002:3002"
+      - "5002:3002"
 
   gateway:
     build: ./gateway
     ports:
-      - "3000:3000"
+      - "5000:3000"
     depends_on:
       - micro1
       - micro2
