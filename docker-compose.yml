@@ -3,6 +3,9 @@ version: "3.3"
 services:
   micro1:
     build: ./microservices/micro1
+    volumes:
+      - ./microservices/micro1:/src/app
+    command: npm run dev
     ports:
       - "5001:3001"
 
