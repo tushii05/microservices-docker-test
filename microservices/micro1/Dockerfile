@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 3001
 
 # Start service
-CMD ["node", "start"]
+CMD ["node", "src/server.js"]
